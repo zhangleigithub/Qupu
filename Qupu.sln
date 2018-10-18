@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summer.Qupu.Service", "Summer.Qupu.Service\Summer.Qupu.Service.csproj", "{3BF7D926-6CEE-4089-8010-65E8E30A8736}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summer.Qupu.Model", "Summer.Qupu.Model\Summer.Qupu.Model.csproj", "{9250CB58-DC7A-442A-B430-BB8975A1261C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BF7D926-6CEE-4089-8010-65E8E30A8736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF7D926-6CEE-4089-8010-65E8E30A8736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF7D926-6CEE-4089-8010-65E8E30A8736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF7D926-6CEE-4089-8010-65E8E30A8736}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9250CB58-DC7A-442A-B430-BB8975A1261C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9250CB58-DC7A-442A-B430-BB8975A1261C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9250CB58-DC7A-442A-B430-BB8975A1261C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9250CB58-DC7A-442A-B430-BB8975A1261C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
