@@ -1,12 +1,11 @@
 ﻿using HtmlAgilityPack;
-using Summer.Qupu.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Summer.Qupu.Service
+namespace AppData
 {
     public class WebResourceAnalysisService
     {
@@ -25,7 +24,7 @@ namespace Summer.Qupu.Service
 
                 if (trTds.Count == 7)
                 {
-                    OpernModel model = new OpernModel();
+                    QupuModel model = new QupuModel();
                     model.Title = trTds[1].InnerText;
                     model.Type = trTds[2].InnerText;
                     model.Songwriter = trTds[3].InnerText;

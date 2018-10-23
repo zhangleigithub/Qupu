@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Summer.Qupu.Model
+namespace AppData
 {
     public class QupuModel
     {
