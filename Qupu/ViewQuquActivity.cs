@@ -20,9 +20,9 @@ namespace Qupu
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.view_qupu);
             this.viewQupuLinearLayout = FindViewById<LinearLayout>(Resource.Id.linearLayout_ViewQupu);
-            string[] srcs = bundle.GetStringArray("srcs");
+            string[] qupus = this.GetIntent().GetStringArray("Qupus");
 
-            foreach (var item in srcs)
+            foreach (var item in qupus)
             {
                 try
                 {

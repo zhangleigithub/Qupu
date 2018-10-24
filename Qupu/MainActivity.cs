@@ -48,6 +48,7 @@ namespace Qupu
                 }
 
                 this.adapter = new QupuAdapter(this.qupus.ToArray());
+                this.adapter.ItemClick += this.OnItemClick;
                 this.recyclerView.SetAdapter(this.adapter);
             }
             catch (Exception ex)
@@ -83,7 +84,7 @@ namespace Qupu
         private void OnClick(int position)
         {
             Intent intent = new Intent(this, typeof(ViewQuquActivity));
-            intent.PutStringArrayListExtra("srcs", this.qupus[position].Qupus);
+            intent.PutStringArrayListExtra("Qupus", this.qupus[position].Qupus);
             StartActivity(intent);
         }
     }

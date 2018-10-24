@@ -15,7 +15,7 @@ namespace Qupu
         public TextView UploadDate { get; private set; }
         public TextView QupuCount { get; private set; }
 
-        public QupuViewHolder(View itemView) : base(itemView)
+        public QupuViewHolder(View itemView,Action<int> listener) : base(itemView)
         {
             this.Title = itemView.FindViewById<TextView>(Resource.Id.Title);
             this.Type = itemView.FindViewById<TextView>(Resource.Id.Type);
@@ -24,6 +24,8 @@ namespace Qupu
             this.Uploader = itemView.FindViewById<TextView>(Resource.Id.Uploader);
             this.UploadDate = itemView.FindViewById<TextView>(Resource.Id.UploadDate);
             this.QupuCount = itemView.FindViewById<TextView>(Resource.Id.QupuCount);
+
+            itemView.Click += (sender, e) => listener (base.LayoutPosition);
         }
     }
 }

@@ -6,7 +6,9 @@ namespace Qupu
 {
     public class QupuAdapter : RecyclerView.Adapter
     {
-        public QupuModel[] qupus;
+        private QupuModel[] qupus;
+
+        public event EventHandler<int> ItemClick;
 
         public QupuAdapter(QupuModel[] qupus)
         {
@@ -16,7 +18,7 @@ namespace Qupu
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.cardView_qupu, parent, false);
-            QupuViewHolder vh = new QupuViewHolder(itemView);
+            QupuViewHolder vh = new QupuViewHolder(itemView,this.OnClick);
             return vh;
         }
 
@@ -35,6 +37,14 @@ namespace Qupu
         public override int ItemCount
         {
             get { return qupus.Length; }
+        }
+
+        private void OnClick(int position)
+        {
+            if (this.ItemClick != null)
+            {
+                this.ItemClick (this, position);
+            }
         }
     }
 }
