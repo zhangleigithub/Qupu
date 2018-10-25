@@ -57,6 +57,13 @@ namespace Qupu
             }
         }
 
+        private void OnItemClick(object sender, int e)
+        {
+            Intent intent = new Intent(this, typeof(ViewQuquActivity));
+            intent.PutStringArrayListExtra("Qupus", this.qupus[e].Qupus);
+            StartActivity(intent);
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
@@ -79,13 +86,6 @@ namespace Qupu
             View view = (View) sender;
             Snackbar.Make(view, "Replace with your own action", Snackbar.LengthLong)
                 .SetAction("Action", (Android.Views.View.IOnClickListener)null).Show();
-        }
-
-        private void OnClick(int position)
-        {
-            Intent intent = new Intent(this, typeof(ViewQuquActivity));
-            intent.PutStringArrayListExtra("Qupus", this.qupus[position].Qupus);
-            StartActivity(intent);
         }
     }
 }

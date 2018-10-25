@@ -1,6 +1,7 @@
 using Android;
 using Android.Support.V7.Widget;
 using Android.Views;
+using System;
 
 namespace Qupu
 {
