@@ -1,4 +1,6 @@
 ﻿using HtmlAgilityPack;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +49,50 @@ namespace AppData
                 foreach (var itemC in hrefs)
                 {
                     item.Qupus.Add(string.Format("{0}{1}", baseUrl, itemC.Attributes["href"].Value));
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        public QupuModel[] Parse2(string baseUrl, string resource)
+        {
+            List<QupuModel> result = new List<QupuModel>();
+
+            var driver = new ChromeDriver();
+            driver.Navigate().GoToUrl(string.Format("{0}{1}", baseUrl, resource));
+
+            var lst = driver.FindElementByClassName("opern_list");
+            var trs = lst.FindElements(By.TagName("tr"));
+
+            foreach (var item in trs)
+            {
+                var tds = item.FindElements(By.TagName("td"));
+
+                if (tds.Count == 7)
+                {
+                    QupuModel model = new QupuModel();
+                    model.Title = tds[1].Text;
+                    model.Type = tds[2].Text;
+                    model.Songwriter = tds[3].Text;
+                    model.Singer = tds[4].Text;
+                    model.Uploader = tds[5].Text;
+                    model.UploadDate = tds[6].Text;
+                    model.PageLink = tds[1].FindElement(By.TagName("a")).GetAttribute("href");
+
+                    result.Add(model);
+                }
+            }
+
+            foreach (var item in result)
+            {
+                driver.Navigate().GoToUrl(item.PageLink);
+                var imgLst = driver.FindElementByClassName("imageList");
+                var imgs = imgLst.FindElements(By.TagName("a"));
+
+                foreach (var itemC in imgs)
+                {
+                    item.Qupus.Add(itemC.GetAttribute("href"));
                 }
             }
 

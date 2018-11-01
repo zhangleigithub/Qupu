@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,14 @@ namespace AppData
     {
         static void Main(string[] args)
         {
-            var driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("http://www.qupu123.com/qiyue/dianziqin");
-
-            var vv = driver.FindElementByClassName("opern_list");
 
             WebResourceAnalysisService web = new WebResourceAnalysisService();
-            QupuModel[] qupu = web.Parse("http://www.qupu123.com/", "qiyue/dianziqin");
+            //QupuModel[] qupu = web.Parse("http://www.qupu123.com/", "qiyue/dianziqin");
+
+            QupuModel[] qupu = web.Parse2("http://www.qupu123.com/", "qiyue/dianziqin");
 
             string str = Newtonsoft.Json.JsonConvert.SerializeObject(qupu);
-  
+
             Console.Read();
         }
     }
