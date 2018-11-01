@@ -19,8 +19,6 @@ namespace Qupu
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar")]
     public class ViewQuquActivity : AppCompatActivity
     {
-        private LinearLayout viewQupuLinearLayout;
-
         protected async override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
